@@ -1,49 +1,63 @@
-create table Genre (
-GID SERIAL primary key,
-Name VARCHAR(40) not null
+
+CREATE TABLE Genre (
+GID SERIAL PRIMARY KEY,
+Name VARCHAR(40) NOT NULL
 );
 
-create table Artist (
-AID SERIAL primary key,
-Name VARCHAR(80) not null
+CREATE TABLE Artist (
+AID SERIAL PRIMARY KEY,
+Name VARCHAR(80) NOT NULL
 );
 
-create table Album (
-AlbumID SERIAL primary key,
-Name VARCHAR(80) not null,
-Year date not null
+CREATE TABLE Album (
+AlbumID SERIAL PRIMARY KEY,
+Name VARCHAR(80) NOT NULL,
+year integer NOT NULL
 );
 
-create table Collection (
-CID SERIAL primary key,
-Name VARCHAR(80) not null,
-Year date not null
+CREATE TABLE Collection (
+CID SERIAL PRIMARY KEY,
+Name VARCHAR(80) NOT NULL,
+Year integer NOT NULL
 );
 
-create table Treck (
-TID SERIAL primary key,
-Name VARCHAR(80) not null,
-Duration time not null,
-AlbumID integer not null references Album(AlbumID)
+CREATE TABLE Treck (
+TID SERIAL PRIMARY KEY,
+Name VARCHAR(80) NOT NULL,
+Duration integer NOT NULL,
+AlbumID integer NOT NULL references Album(AlbumID)
 );
 
-create table GenreArtist (
+CREATE TABLE GenreArtist (
 GenreID integer references Genre(GID),
 ArtistID integer references Artist(AID),
-constraint ga primary key (GenreID, ArtistID)
+constraint ga PRIMARY KEY (GenreID, ArtistID)
 );
 
-create table AlbumArtist (
+CREATE TABLE AlbumArtist (
 AlbumID integer references Album(AlbumID),
 ArtistID integer references Artist(AID),
-constraint aa primary key (AlbumID, ArtistID)
+constraint aa PRIMARY KEY (AlbumID, ArtistID)
 );
 
-create table CollectionTreck (
+CREATE TABLE CollectionTreck (
 TreckID integer references Treck(TID),
 CollectionID integer references Collection(CID),
-constraint tc primary key (TreckID, CollectionID)
+constraint tc PRIMARY KEY (TreckID, CollectionID)
 );
+
+
+
+
+
+ 
+
+
+
+
+
+
+
 
 
 
