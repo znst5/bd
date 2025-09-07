@@ -32,7 +32,7 @@ where name not like '% %';
 
 select name
 from treck
-where name like '%Мой%' or name like '%My%';
+where 'my'=any(string_to_array(lower(name), ' ')) or 'мой'=any(string_to_array(lower(name), ' '));
 
 ----Задание 3---
 
@@ -48,7 +48,7 @@ group by g.name;
 
 select count(t.name) from album a
 join treck t on t.albumid = a.albumid 
-where a.year between 2019 and 2021;
+where a.year between 2019 and 2020;
 
 ---Средняя продолжительность треков по каждому альбому.--
 
@@ -61,9 +61,15 @@ group by a.name;
 select ar.name from album a
 join albumartist a2 on a2.albumid = a.albumid
 join artist ar on a2.artistid = ar.aid
-where a."year" = 2020;
+where a."year" != 2020
+group by ar."name" ;
 
 --Названия сборников, в которых присутствует конкретный исполнитель (выберите его сами)--
 
-select * from collection c 
-where name like '%Michael Jackson%';
+select c."name"  from collection c 
+join collectiontreck ct on c.cid = ct.collectionid 
+join treck t on t.tid = ct.treckid 
+join album a on a.albumid = t.albumid 
+join albumartist aa on aa.albumid = a.albumid 
+join artist at on at.aid = aa.artistid 
+where at."name" = 'Michael Jackson';
