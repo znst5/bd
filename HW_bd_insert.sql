@@ -52,3 +52,8 @@ VALUES(1, 1), (1, 2), (1, 3), (1, 4), (2, 5), (5, 1), (5, 2), (5, 3), (5, 5), (5
 (7, 9), (11, 1), (11, 3), (11, 4), (11, 5), (11, 6), (13, 10);
 
 
+INSERT INTO Treck(TID, name, Duration, AlbumID)
+VALUES(31, 'Ты Только Мой', 105, 6), (32, 'Bye Myself', 10, 7);
+
+delete from treck
+where TID = 31;
