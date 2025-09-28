@@ -58,11 +58,16 @@ group by a.name;
 
 ---Все исполнители, которые не выпустили альбомы в 2020 году.---
 
-select ar.name from album a
-join albumartist a2 on a2.albumid = a.albumid
-join artist ar on a2.artistid = ar.aid
-where a."year" != 2020
-group by ar."name" ;
+
+select ar.name 
+from artist ar   
+where ar.name not in (
+select a.name from artist a
+join albumartist a2 on a2.artistid = a.aid
+join album al on al.albumid = a2.albumid
+where al.year = 2020
+group by a.name);
+
 
 --Названия сборников, в которых присутствует конкретный исполнитель (выберите его сами)--
 
@@ -73,3 +78,6 @@ join album a on a.albumid = t.albumid
 join albumartist aa on aa.albumid = a.albumid 
 join artist at on at.aid = aa.artistid 
 where at."name" = 'Michael Jackson';
+
+
+select * from artist a 
