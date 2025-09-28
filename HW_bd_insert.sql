@@ -7,7 +7,7 @@ INSERT INTO album(AlbumID, name, year)
 VALUES(1, 'Thriller', 1982), (2, 'Dangerous', 1991), (3, 'Help!', 1965), (4, 'Abbey Road', 1969), (5, 'The White Album', 1968),
 (6, 'Please Please Me', 1963), (7, 'Rubber Soul', 1965), (8, 'Nevermind', 1991), (9, 'In Utero', 1993), (10, 'MTV Unplugged in New York', 1994),
 (11, 'Love at First Sting', 1984), (12, 'Crazy World', 1990), (13, 'Unbreakable', 2004), (14, 'Lovedrive', 1979), (15, 'Blackout', 1982), 
-(16, 'Future Nostalgia', 2020);
+(16, 'Future Nostalgia', 2020), (17, 'Future Nostalgia The Moonlight Edition', 2022);
 
 select * from Album
 
@@ -17,7 +17,11 @@ VALUES(1, 'Thriller', 357, 1), (2, 'P.Y.T.', 148, 1), (3, 'Black or White', 139,
 (13, 'Smells Like Teen Spirit', 301, 8), (14, 'Come as You Are', 218, 8), (15, 'Lithium', 256, 8), (16, 'Heart-Shaped Box', 279, 9),(17, 'In Bloom', 254, 8), 
 (18, 'The Man Who Sold The World', 228, 10), (19, 'Still Loving You', 386, 11), (20, 'Wind Of Change', 313, 12), (21, 'Send Me An Angel', 272, 12), 
 (22, 'Maybe I Maybe You', 210, 13), (23, 'Always Somewhere', 297, 14), (24, 'When the Smoke Is Going Down', 230, 15), (25, 'Future Nostalgia', 184, 16), 
-(26, 'Don''t Start Now', 183, 16), (27, 'Cool', 209, 16), (28, 'Physical', 193, 16), (29, 'Levitating', 203, 16), (30, 'Pretty Please', 194, 16);
+(26, 'Don''t Start Now', 183, 16), (27, 'Cool', 209, 16), (28, 'Physical', 193, 16), (29, 'Levitating', 203, 16), (30, 'Pretty Please', 194, 16), (31, 'Genesis', 205, 17), 
+(32, 'Lost In Your Light', 205, 17), (33, 'Hotter Than Hell', 187, 17), (34, 'Be The One', 202, 17), (35, 'IDGAF', 217, 17), (36, 'Blow Your Mind (Mwah)', 178, 17), 
+(37, 'Garden', 227, 17), (38, 'No Goodbyes', 216, 17), (39, 'Thinking ''Bout You', 171, 17), (40, 'New Rules', 209, 17), (41, 'Begging', 194, 17), 
+(42, 'Homesick', 230, 17), (43, 'Dreams', 220, 17), (44, 'Room for 2', 208, 17), (45, 'New Love', 391, 17), (46, 'Bad Together', 238, 17), (47, 'Last Dance', 228, 17), 
+(48, 'Want To', 211, 17), (49, 'Running', 221, 17), (50, 'Kiss and Make Up', 189, 17);
 
 select * from treck
 
@@ -45,7 +49,7 @@ VALUES(1, 1), (1, 5), (2, 1), (3, 1), (4, 1), (5, 1), (5, 5), (6, 1), (7, 1), (7
 INSERT INTO AlbumArtist(AlbumID, ArtistID)
 VALUES(1, 1), (2, 1), (3, 2), (4, 2), (5, 2),
 (6, 2), (7, 2), (8, 3), (9, 3), (10, 3),
-(11, 4), (12, 4), (13, 4), (14, 4), (15, 4), (16, 5);
+(11, 4), (12, 4), (13, 4), (14, 4), (15, 4), (16, 5), (17, 5);
 
 INSERT INTO CollectionTreck(TreckID, CollectionID)
 VALUES(1, 1), (1, 2), (1, 3), (1, 4), (2, 5), (5, 1), (5, 2), (5, 3), (5, 5), (5, 6), (5, 7), (5, 8),
@@ -53,7 +57,7 @@ VALUES(1, 1), (1, 2), (1, 3), (1, 4), (2, 5), (5, 1), (5, 2), (5, 3), (5, 5), (5
 
 
 INSERT INTO Treck(TID, name, Duration, AlbumID)
-VALUES(31, 'Ты Только Мой', 105, 6), (32, 'Bye Myself', 10, 7);
+VALUES(51, 'Ты Только Мой', 105, 6), (52, 'Bye Myself', 10, 7);
 
-delete from treck
-where TID = 31;
+INSERT INTO Treck(TID, name, Duration, AlbumID)
+VALUES(51, 'Ты Только Мой', 105, 6);
